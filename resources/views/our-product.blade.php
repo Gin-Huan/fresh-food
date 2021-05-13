@@ -232,7 +232,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="gotoshop-btn text-center">
-                    <a href="shop.html" class="btn famie-btn">Go to Store</a>
+                    <a href="{{url('shop')}}" class="btn famie-btn">Go to Store</a>
                 </div>
             </div>
         </div>

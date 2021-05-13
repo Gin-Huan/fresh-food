@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('package_id')->nullable();
             $table->unsignedBigInteger('customer_id');
-            $table->string('detail')->nullable();
+            $table->json('detail')->nullable();
             $table->integer('status');
             $table->float('price');
             $table->boolean('is_pay')->default(0);

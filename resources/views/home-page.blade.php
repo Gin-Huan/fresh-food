@@ -320,7 +320,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="gotoshop-btn text-center wow fadeInUp" data-wow-delay="900ms">
-                    <a href="shop.html" class="btn famie-btn">Go to Store</a>
+                    <a href="{{url('shop')}}" class="btn famie-btn">Go to Store</a>
                 </div>
             </div>
         </div>

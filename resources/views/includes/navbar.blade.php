@@ -3,7 +3,7 @@
         <div class="container">
             <nav class="classy-navbar justify-content-between" id="famieNav">
                 <!-- <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt="" /></a> -->
-                <a href="index.html" class="nav-brand">Fresh food</a>
+                <a href="{{url('home-page')}}" class="nav-brand">Fresh food</a>
 
                 <div class="classy-navbar-toggler">
                     <span class="navbarToggler"><span></span><span></span><span></span></span>

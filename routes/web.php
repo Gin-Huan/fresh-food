@@ -43,11 +43,23 @@ Route::get('/home-page', function () {
     return view('home-page');
 });
 
+Route::get('/login', function () {
+    return view('auth/login');
+});
+
+// Route::get('/register', function () {
+//     return view('auth/signup');
+// });
+Route::post('login', 'LoginController@login')->name('login');
+Route::post('register', 'LoginController@register');
+
 Route::group(['prefix' => 'cart'],function(){
     Route::get('','CartController@index')->name('cart.index');
-
+    Route::delete('destroy/{id}','CartController@destroy')->name('cart.delete');
     Route::get('add/{id}','CartController@create')->name('cart.add');
 });
+
+Route::post('store','OrdersController@store')->name('order.store')->middleware(['auth']);
 
 
 

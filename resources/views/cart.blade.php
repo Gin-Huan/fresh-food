@@ -17,7 +17,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($carts as $cart)
+                        @foreach(Cart::content() as $cart)
 
                         <tr>
                             <td scope="col-1">{{$cart->id}}</td>
@@ -33,12 +33,18 @@
                             </td>
                             <td>{{$cart->subtotal}}</td>
                             <td>
-                                <button
-                                    type="button"
-                                    class="btn btn-outline-danger"
+                                <form
+                                    action="{{route('cart.delete',$cart->id)}}"
+                                    method="POST"
                                 >
-                                    Hủy
-                                </button>
+                                    {{ csrf_field() }}
+                                    {{ method_field("DELETE") }}
+                                    <input
+                                        class="btn btn-danger"
+                                        type="submit"
+                                        value="Delete"
+                                    />
+                                </form>
                             </td>
                         </tr>
                         @endforeach
@@ -49,12 +55,18 @@
                             <td scope="col"></td>
                             <td scope="col">Total: {{Cart::priceTotal() }}</td>
                             <td>
-                                <button
-                                    type="button"
-                                    class="btn btn-outline-primary"
+                                <form
+                                    action="{{ route('order.store') }}"
+                                    method="POST"
                                 >
-                                    Đặt hàng
-                                </button>
+                                    @csrf
+                                    <button
+                                        type="submit"
+                                        class="btn btn-outline-primary"
+                                    >
+                                        Đặt hàng
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>

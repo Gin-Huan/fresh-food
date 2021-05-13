@@ -18,9 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div
-                    class="shop-filters mb-30 d-flex align-items-center justify-content-between"
-                >
+                <div class="shop-filters mb-30 d-flex align-items-center justify-content-between">
                     <div class="product-show">
                         <h6>Showing 8 of {{ $all }} results</h6>
                     </div>
@@ -148,299 +146,13 @@
             </div>
 
             <div class="col-12 col-md-8 col-lg-9">
-                <!-- <div class="row">
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p1.jpg" alt="">
-
-                                <span class="product-tags">Hot</span>
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p2.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p3.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p4.jpg" alt="">
-
-                                <span class="product-tags bg-danger">Sale</span>
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p5.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p6.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p7.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p8.jpg" alt="">
-
-                                <span class="product-tags">Hot</span>
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p9.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p10.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p11.jpg" alt="">
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="single-product-area mb-50">
-
-                            <div class="product-thumbnail">
-                                <img src="img/bg-img/p12.jpg" alt="">
-
-                                <span class="product-tags bg-danger">Sale</span>
-
-                                <div class="product-meta-data">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i
-                                            class="icon_heart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                            class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">Strawberry</a>
-                                <h6 class="price">$17.99</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
                 <div class="row">
                     @foreach($list_product as $product)
                     <div class="col-12 col-sm-6 col-lg-4">
                         <div class="single-product-area mb-50">
                             <div class="product-thumbnail">
-                                <img src="img/bg-img/p1.jpg" alt="" />
+                                <img src="{{$product->image}}" alt="" />
 
                                 <!-- <span class="product-tags">Hot</span> -->
 
@@ -452,29 +164,15 @@
                                         title="Favourite"
                                         ><i class="icon_heart_alt"></i
                                     ></a> -->
-                                    <a
-                                        href="{{route('cart.add',$product->id)}}"
-                                        data-toggle="tooltip"
-                                        data-placement="top"
-                                        title="Add To Cart"
-                                        ><i class="icon_cart_alt"></i
-                                    ></a>
-                                    <a
-                                        href="#"
-                                        data-toggle="tooltip"
-                                        data-placement="top"
-                                        title="Compare"
-                                        ><i class="arrow_left-right_alt"></i
-                                    ></a>
+                                    <a href="{{route('cart.add',$product->id)}}" data-toggle="tooltip"
+                                        data-placement="top" title="Add To Cart"><i class="icon_cart_alt"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
+                                            class="arrow_left-right_alt"></i></a>
                                 </div>
                             </div>
 
                             <div class="product-desc text-center pt-4">
-                                <a
-                                    href="#"
-                                    class="product-title"
-                                    >{{$product->name}}</a
-                                >
+                                <a href="#" class="product-title">{{$product->name}}</a>
                                 <h6 class="price">${{$product->price}}</h6>
                             </div>
                         </div>

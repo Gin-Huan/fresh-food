@@ -9,7 +9,7 @@
                     <i>Login to start shopping.</i>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route('register')}}">
                         @csrf
 
                         <div class="form-group row">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <div class="col-md-8 offset-md-2">
                                 <select name="gender" class="form-control form-control-lg" id="">
                                     <option value="male">male</option>
@@ -78,7 +78,7 @@
                                     <option value="orther">orther</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-2">

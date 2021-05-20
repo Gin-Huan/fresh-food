@@ -8,6 +8,11 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 class OrdersController extends Controller
 {
+    public function index(Request $request,$id) {
+        $list_order = Orders::where('customer_id',$id)->get();
+        
+        return view('list_order',compact('list_order'));
+    }
     public function store(Request $request){
         $carts = Cart::content();
 
@@ -28,8 +33,9 @@ class OrdersController extends Controller
         $orders->price = Cart::priceTotal();
         $orders->save();
 
+        $totalMoney = $orders->price;
         Cart::destroy();
 
-        return redirect()->back();
+        return view('vn_pay/index',compact('orders'));
     }
 }

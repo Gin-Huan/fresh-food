@@ -24,26 +24,32 @@
                             <td scope="col">{{$cart->name}}</td>
                             <td scope="col">{{$cart->price}}</td>
                             <td scope="col">
-                                <input
+                                <div class="pl-2 cart_quantity_button row">
+                                    <form method="POST" action="{{route('cart.increment',$cart->id)}}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                        <span type="submit" class="pr-2 cart_quantity_up">
+                                            +
+                                        </span>
+                                    </form>
+                                    <input class="cart_quantity_input" type="text" name="quantity"
+                                        value="{{$cart->qty}}" autocomplete="off" size="2" />
+                                    <a class="pl-2 cart_quantity_down" href="{{route('cart.decrease',$cart->id)}}">
+                                        -
+                                    </a>
+                                </div>
+                                <!-- <input
                                     value="{{$cart->qty}}"
                                     type="number"
                                     id="quantity"
                                     name="quantity"
-                                />
+                                /> -->
                             </td>
                             <td>{{$cart->subtotal}}</td>
                             <td>
-                                <form
-                                    action="{{route('cart.delete',$cart->id)}}"
-                                    method="POST"
-                                >
+                                <form action="{{route('cart.delete',$cart->id)}}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field("DELETE") }}
-                                    <input
-                                        class="btn btn-danger"
-                                        type="submit"
-                                        value="Delete"
-                                    />
+                                    <input class="btn btn-danger" type="submit" value="Delete" />
                                 </form>
                             </td>
                         </tr>
@@ -55,15 +61,9 @@
                             <td scope="col"></td>
                             <td scope="col">Total: {{Cart::priceTotal() }}</td>
                             <td>
-                                <form
-                                    action="{{ route('order.store') }}"
-                                    method="POST"
-                                >
+                                <form action="{{ route('order.store') }}" method="POST">
                                     @csrf
-                                    <button
-                                        type="submit"
-                                        class="btn btn-outline-primary"
-                                    >
+                                    <button type="submit" class="btn btn-outline-primary">
                                         Đặt hàng
                                     </button>
                                 </form>

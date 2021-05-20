@@ -24,14 +24,12 @@ Route::get('/our-product', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/news', function () {
-    return view('news');
-});
+Route::get('/news','PostController@index');
 
 Route::get('/news-details', function () {
     return view('news-details');
 });
-
+Route::get('news/detail/{id}', 'PostController@show')->name('new.show');
 Route::get('/about', function () {
     return view('about');
 });
@@ -45,11 +43,12 @@ Route::get('/home-page', function () {
 
 Route::get('/login', function () {
     return view('auth/login');
-});
+})->name('login.view');
+Route::get('/list_order/{id}', 'OrdersController@index')->name('list_order')->middleware(['auth']);
 
-// Route::get('/register', function () {
-//     return view('auth/signup');
-// });
+Route::get('/register', function () {
+    return view('auth/signup');
+})->name('register');
 Route::post('login', 'LoginController@login')->name('login');
 Route::post('register', 'LoginController@register');
 
@@ -57,10 +56,14 @@ Route::group(['prefix' => 'cart'],function(){
     Route::get('','CartController@index')->name('cart.index');
     Route::delete('destroy/{id}','CartController@destroy')->name('cart.delete');
     Route::get('add/{id}','CartController@create')->name('cart.add');
+    Route::post('increment/{id}','CartController@increment')->name('cart.increment');
+    Route::get('decrease/{id}','CartController@decrease')->name('cart.decrease');
 });
 
 Route::post('store','OrdersController@store')->name('order.store')->middleware(['auth']);
+Route::post('payment','PaymentController@createPayment')->name('payment')->middleware(['auth']);
 
+Route::get('vnpay/return','PaymentController@viewReturn')->name('vnpay.return')->middleware(['auth']);
 
 
 Route::group(['prefix' => 'admin'], function () {

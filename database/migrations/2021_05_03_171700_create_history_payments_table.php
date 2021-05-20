@@ -18,7 +18,7 @@ class CreateHistoryPaymentsTable extends Migration
             $table->bigInteger('order_id');
             $table->bigInteger('user_id')->nullable();
             $table->string('user_name');
-            $table->float('price');
+            $table->string('price');
             $table->string('note')->nullable();
             $table->string('vnp_response_code');
             $table->string('code_vnpay');

@@ -29,4 +29,25 @@ class LoginController extends Controller
 
         return redirect('/cart');
     }
+
+    public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users|max:255',
+            'password' => 'required',
+            // 'gender' => 'required',
+            // 'phone' => 'required|unique:users',
+            'name' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with(array('error' => $validator->errors()->first(), 'input_data' => $request->all()));
+        }
+
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $input['role_id'] = 2;
+        $user = User::create($input);
+        Auth::login($user);
+        return redirect('login')->with('success', 'Success!');
+    }
 }

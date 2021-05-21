@@ -28,23 +28,59 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
         Cart::add([['id'=>$product->id,'name' => $product->name,'qty' =>1,'price'=>$product->price,'weight'=>0]]);
-        return redirect()->back()->with('success',"Creating class sucessfully!");
+        if ($request->product_id && ($request->increment) == 1) {
+            $rows = Cart::search(function($key, $value) {
+                return $key->id == $request->product_id;
+            });
+            $item = $rows->first();
+            Cart::update($item->rowId, $item->qty + 1);
+        }
+
+        //decrease the quantity
+        if (($request->decrease) == 1) {
+            $rows = Cart::search(function($key, $value) {
+                return $key->id == $request->product_id;
+            });
+            $item = $rows->first();
+            Cart::update($item->rowId, $item->qty - 1);
+        }
+        return redirect()->back()->with('success',"Add product sucessfully!");
     }
+
+    public function increment(Request $request,$id){
+
+            $rows = Cart::search(function($key, $value) use ($id) {
+                return $key->id == $id;
+            });
+            $item = $rows->first();
+            Cart::update($item->rowId, $item->qty + 1);
+        return redirect()->back()->with('success',"Add product sucessfully!");
+
+    }
+
+    public function decrease(Request $request,$id){
+
+        $rows = Cart::search(function($key, $value) use ($id) {
+            return $key->id == $id;
+        });
+        $item = $rows->first();
+        Cart::update($item->rowId, $item->qty - 1);
+    return redirect()->back()->with('success',"Add product sucessfully!");
+
+}
 
     public function destroy(Request $request,$id)
     {
-        $cart = Cart::content()->where('id',$id);
-
-        if($cart->isNotEmpty()){
-            Cart::remove('id',$id);
-        }
+        // dd($id);
+        $rowId = Cart::search(function ($cart, $key) use($id) {
+            return $cart->id == $id;
+         })->first()->rowId;
+        Cart::remove($rowId);
         return redirect()->back();
     }
 
     public function update(Request $request, $id)
     {
-//        dd(Cart::content());
-//        dd($request->all());
         Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
         return back();
     }

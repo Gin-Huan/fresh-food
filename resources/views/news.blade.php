@@ -21,58 +21,28 @@
             <div class="col-12 col-md-8">
                 <div class="posts-area">
 
+                    @foreach($posts as $post)
                     <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="100ms">
-                        <h6>Post on <a href="#" class="post-date">18 Aug 2018</a> / <a href="#"
-                                class="post-author">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Rising cattle supplies see beef export lifted</a>
+                        <h6>Post on <a href="#" class="post-date">{{date('d-m-Y', strtotime($post->created_at))}}</a> /
+                            <a href="#" class="post-author">{{$post->user ? $post->user->name : ""}}</a>
+                        </h6>
+                        <a href="{{route('new.show',$post->id)}}" class="post-title">{{$post->title}}</a>
                         <img src="img/bg-img/26.jpg" alt="" class="post-thumb">
                         <p class="post-excerpt">
-                            Nunc aliquet, justo non commodo conguet, denim, action bibendum purus selecao samuel eget
-                            libero. Maecenas ac viverra enim, et laoreet lacus. Etiam nisi diam, sagittis quam at...
+                            {{$post->excerpt}}
                         </p>
                     </div>
+                    @endforeach
 
-                    <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <h6>Post on <a href="#" class="post-date">18 Aug 2018</a> / <a href="#"
-                                class="post-author">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Why innovation is key to maintaining our export market share</a>
-                        <img src="img/bg-img/27.jpg" alt="" class="post-thumb">
-                        <p class="post-excerpt">
-                            Nunc aliquet, justo non commodo conguet, denim, action bibendum purus selecao samuel eget
-                            libero. Maecenas ac viverra enim, et laoreet lacus. Etiam nisi diam, sagittis quam at...
-                        </p>
-                    </div>
-
-                    <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <h6>Post on <a href="#" class="post-date">18 Aug 2018</a> / <a href="#"
-                                class="post-author">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Cattle marts: Cows take a hit at the ringside</a>
-                        <img src="img/bg-img/28.jpg" alt="" class="post-thumb">
-                        <p class="post-excerpt">
-                            Nunc aliquet, justo non commodo conguet, denim, action bibendum purus selecao samuel eget
-                            libero. Maecenas ac viverra enim, et laoreet lacus. Etiam nisi diam, sagittis quam at...
-                        </p>
-                    </div>
-
-                    <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="700ms">
-                        <h6>Post on <a href="#" class="post-date">18 Aug 2018</a> / <a href="#"
-                                class="post-author">Peter Crough</a></h6>
-                        <a href="#" class="post-title">Malting barley price negotiations set to commence</a>
-                        <img src="img/bg-img/29.jpg" alt="" class="post-thumb">
-                        <p class="post-excerpt">
-                            Nunc aliquet, justo non commodo conguet, denim, action bibendum purus selecao samuel eget
-                            libero. Maecenas ac viverra enim, et laoreet lacus. Etiam nisi diam, sagittis quam at...
-                        </p>
-                    </div>
                 </div>
 
-                <nav>
+                <!-- <nav>
                     <ul class="pagination wow fadeInUp" data-wow-delay="900ms">
                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
 
             <div class="col-12 col-md-4">

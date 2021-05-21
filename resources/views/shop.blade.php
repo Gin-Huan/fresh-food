@@ -11,14 +11,20 @@
         </nav>
     </div>
 </div>
-@if('success')
-<p>Them san pham thanh cong</p>
-@endif
+
 <section class="shop-area section-padding-0-100">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="shop-filters mb-30 d-flex align-items-center justify-content-between">
+                <div
+                    class="
+                        shop-filters
+                        mb-30
+                        d-flex
+                        align-items-center
+                        justify-content-between
+                    "
+                >
                     <div class="product-show">
                         <h6>Showing 8 of {{ $all }} results</h6>
                     </div>
@@ -146,7 +152,6 @@
             </div>
 
             <div class="col-12 col-md-8 col-lg-9">
-
                 <div class="row">
                     @foreach($list_product as $product)
                     <div class="col-12 col-sm-6 col-lg-4">
@@ -164,15 +169,24 @@
                                         title="Favourite"
                                         ><i class="icon_heart_alt"></i
                                     ></a> -->
-                                    <a href="{{route('cart.add',$product->id)}}" data-toggle="tooltip"
-                                        data-placement="top" title="Add To Cart"><i class="icon_cart_alt"></i></a>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                            class="arrow_left-right_alt"></i></a>
+                                    <a
+                                        href="{{route('cart.add',$product->id)}}"
+                                        data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="Add To Cart"
+                                        ><i class="icon_cart_alt"></i
+                                    ></a>
+                                    <!-- <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
+                                            class="arrow_left-right_alt"></i></a> -->
                                 </div>
                             </div>
 
                             <div class="product-desc text-center pt-4">
-                                <a href="#" class="product-title">{{$product->name}}</a>
+                                <a
+                                    href="#"
+                                    class="product-title"
+                                    >{{$product->name}}</a
+                                >
                                 <h6 class="price">${{$product->price}}</h6>
                             </div>
                         </div>

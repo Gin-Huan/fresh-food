@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Orders;
 use App\HistoryPayment;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -46,6 +47,84 @@ class PaymentController extends Controller
      * @bodyParam amount int required số tiền cần thanh toán. Example: 20000
      * @bodyParam description string required nội dung hay mô tả thanh toán.Example: thanh toán tiệc bàn
      */
+
+    public function createPayment(Request $request)
+    {
+        $vnp_TxnRef = $request->order_id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_OrderInfo = $request->order_desc;
+        $vnp_OrderType = $request->order_type;
+        $vnp_Amount = $request->amount * 1000;
+        $vnp_Locale = $request->language;
+        $vnp_BankCode =$request->bank_code;
+        $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+
+        $inputData = array(
+            "vnp_Version" => "2.0.0",
+            "vnp_TmnCode" => $this->vnp_TmnCode,
+            "vnp_Amount" => $vnp_Amount,
+            "vnp_Command" => "pay",
+            "vnp_CreateDate" => date('YmdHis'),
+            "vnp_CurrCode" => "VND",
+            "vnp_IpAddr" => $vnp_IpAddr,
+            "vnp_Locale" => $vnp_Locale,
+            "vnp_OrderInfo" => $vnp_OrderInfo,
+            "vnp_OrderType" => $vnp_OrderType,
+            "vnp_ReturnUrl" => route('vnpay.return'),
+            "vnp_TxnRef" => $vnp_TxnRef,
+        );
+
+        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+            $inputData['vnp_BankCode'] = $vnp_BankCode;
+        }
+        ksort($inputData);
+        $query = "";
+        $i = 0;
+        $hashdata = "";
+        foreach ($inputData as $key => $value) {
+            if ($i == 1) {
+                $hashdata .= '&' . $key . "=" . $value;
+            } else {
+                $hashdata .= $key . "=" . $value;
+                $i = 1;
+            }
+            $query .= urlencode($key) . "=" . urlencode($value) . '&';
+        }
+
+        $vnp_Url = $this->vnp_Url . "?" . $query;
+        if (isset($this->vnp_HashSecret)) {
+        // $vnpSecureHash = md5($vnp_HashSecret . $hashdata);
+            $vnpSecureHash = hash('sha256', $this->vnp_HashSecret . $hashdata);
+            $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
+        }
+        
+        return redirect($vnp_Url);
+    }
+
+    public function viewReturn(Request $request)
+    {   
+        if($request->vnp_ResponseCode == '00')
+        {
+            $vnpay_data = $request->all();
+            $dataPayment = [
+                'order_id' => $vnpay_data['vnp_TxnRef'],
+                'user_id' => Auth::user()->id,
+                'user_name' => 'User has paid',
+                'price' => (int)$vnpay_data['vnp_Amount'],
+                'note' => $vnpay_data['vnp_OrderInfo'],
+                'vnp_response_code' => $vnpay_data['vnp_ResponseCode'],
+                'code_vnpay' => $vnpay_data["vnp_TransactionNo"],
+                'code_bank' => $vnpay_data['vnp_BankCode'],
+                'time' => date('Y-m-d H:i',strtotime($vnpay_data['vnp_PayDate']))
+            ];
+
+            HistoryPayment::insert($dataPayment);
+
+            return view('vn_pay/vnpay_return',compact('vnpay_data'));
+        } else {
+            redirect()->to('/');
+        }
+
+    }
 
     public function create_url_payment(Request $request)
     {
@@ -90,7 +169,7 @@ class PaymentController extends Controller
             "vnp_Locale" => $vnp_Locale,
             "vnp_OrderInfo" => $vnp_OrderInfo,
             "vnp_OrderType" => $vnp_OrderType,
-            "vnp_ReturnUrl" => route('payment.payment_from_vnpay'),
+            "vnp_ReturnUrl" => $this->vnp_Returnurl,
             "vnp_TxnRef" => $vnp_TxnRef,
         );
         // dd($inputData);

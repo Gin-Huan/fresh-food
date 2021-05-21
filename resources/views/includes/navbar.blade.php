@@ -18,20 +18,23 @@
 
                     <div class="classynav">
                         <ul>
-                            <li class="active">
+                            <li class="{{url()->current() == url('home-page') ?'active' : '' }}">
                                 <a href="{{url('home-page')}}">Home</a>
                             </li>
-                            <li><a href="{{url('about')}}">About</a></li>
-                            <li><a href="{{url('shop')}}">Shop</a></li>
-                            <li>
-                                <a href="{{url('our-product')}}">Our Product</a>
+                            <li class="{{url()->current() == url('about') ?'active' : '' }}"><a
+                                    href="{{url('about')}}">About</a></li>
+                            <li class="{{url()->current() == url('shop') ?'active' : '' }}"><a href=" {{url('shop')}}">
+                                    Shop</a></li>
+                            <li class="{{url()->current() == url('our-product') ?'active' : '' }}">
+                                <a href=" {{url('our-product')}}">Our Product</a>
                             </li>
-                            <li>
-                                <a href="{{url('farming-pratice')}}">Farming Practice</a>
+                            <li class="{{url()->current() == url('farming-pratice') ?'active' : '' }}">
+                                <a href=" {{url('farming-pratice')}}">Farming Practice</a>
                             </li>
-                            <li><a href="{{url('news')}}">News</a></li>
-                            <li>
-                                <a href="{{url('contact')}}">Contact</a>
+                            <li class="{{url()->current() == url('news') ?'active' : '' }}"><a href=" {{url('news')}}">
+                                    News</a></li>
+                            <li class="{{url()->current() == url('contact') ?'active' : '' }}">
+                                <a href=" {{url('contact')}}">Contact</a>
                             </li>
                         </ul>
 

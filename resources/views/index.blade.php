@@ -26,9 +26,9 @@
 </head>
 
 <body>
-    <div class="preloader d-flex align-items-center justify-content-center">
+    <!-- <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner"></div>
-    </div>
+    </div> -->
 
     @include('includes.header')
 
